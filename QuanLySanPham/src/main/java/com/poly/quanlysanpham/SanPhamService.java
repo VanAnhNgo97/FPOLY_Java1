@@ -26,6 +26,7 @@ public class SanPhamService {
         int gia = scanner.nextInt();
         SanPham sp = new SanPham(tenSP, gia);
         this.dsSanPham.add(sp);
+        System.out.println("Them san pham thanh cong");
     }
     
     public void xuatDanhSachSanPham() {
@@ -36,11 +37,31 @@ public class SanPhamService {
         }
     }
     
-    public void timKiemSanPham() {
-        //Su dung vong lap for, kiem tr
+    public int timKiemSanPham() {
+        /**Su dung vong lap for, kiem tra sp trong danh sach
+         * Tra ve thu tu cua san pham trong danh sach
+         * Neu khong ton tai, tra ve -1
+         */
+        System.out.println("Nhap ten SP can tim kiem:");
+        Scanner scanner = new Scanner(System.in);
+        String tenSP = scanner.nextLine();
+        
+        for(int i = 0; i < this.dsSanPham.size(); i++) {
+            SanPham sp = this.dsSanPham.get(i);
+            if(sp.getTenSP().equals(tenSP)){
+                return i;
+            }
+        }
+        return -1;
     }
     
     public void xoaSanPham() {
+        int viTri = this.timKiemSanPham();
+        if(viTri == -1) {
+            System.out.println("San pham khong ton tai");
+        } else {
+            System.out.println("Xoa thanh cong san pham");
+        }
     }
     
     public void sapXepSanPham() {

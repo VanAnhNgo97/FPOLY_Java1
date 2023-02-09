@@ -20,6 +20,8 @@ public class QuanLySanPham {
         spService.nhapSanPham();
         spService.xuatDanhSachSanPham();
         spService.giaTrungBinh();
+        spService.xoaSanPham();
+        spService.xuatDanhSachSanPham();
         
     }
 }

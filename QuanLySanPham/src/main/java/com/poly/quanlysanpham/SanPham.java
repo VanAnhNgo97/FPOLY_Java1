@@ -11,9 +11,19 @@ package com.poly.quanlysanpham;
 public class SanPham {
     private String tenSP;
     private int gia;
+    
+    //Ham khoi tao
+    public SanPham() {
+    }
+    
+    public SanPham(String tenSP, int gia) {
+        this.tenSP = tenSP;
+        this.gia = gia;
+    }
 
+    //getter and setter for tenSP
     public String getTenSP() {
-        return tenSP;
+        return this.tenSP;
     }
 
     public void setTenSP(String tenSP) {
@@ -21,17 +31,13 @@ public class SanPham {
     }
 
     public int getGia() {
-        return gia;
+        return this.gia;
     }
 
     public void setGia(int gia) {
         this.gia = gia;
     }
-    //Ham khoi tao
-    public SanPham(String tenSP, int gia) {
-        this.tenSP = tenSP;
-        this.gia = gia;
-    }
+    
     
     
 }
