@@ -15,7 +15,11 @@ public class QuanLySanPham {
         SanPhamService spService = new SanPhamService();
         spService.nhapSanPham();
         spService.nhapSanPham();
+        spService.nhapSanPham();
+        spService.nhapSanPham();
+        spService.nhapSanPham();
         spService.xuatDanhSachSanPham();
+        spService.giaTrungBinh();
         
     }
 }

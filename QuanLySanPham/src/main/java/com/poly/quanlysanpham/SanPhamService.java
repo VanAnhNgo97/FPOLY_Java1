@@ -37,6 +37,7 @@ public class SanPhamService {
     }
     
     public void timKiemSanPham() {
+        //Su dung vong lap for, kiem tr
     }
     
     public void xoaSanPham() {
@@ -46,6 +47,14 @@ public class SanPhamService {
     }
     
     public void giaTrungBinh() {
+        int tongGia = 0;
+        int soLuongSP = this.dsSanPham.size();
+        double giaTrungBinh = 0; //giaTB = tongGia / soLuongSP
+        for(SanPham sp: this.dsSanPham) {
+            tongGia = tongGia + sp.getGia();
+        }
+        giaTrungBinh = (double)tongGia / soLuongSP;
+        System.out.println("Gia trung binh: " + giaTrungBinh);
     }
     
 }
