@@ -69,7 +69,7 @@ public class NhanVien {
     public void xuatThongTin() {
         //Hien thi ten - maNV - thu nhap - thue TN
         System.out.println("Thong tin nhan vien");
-        System.out.println(this.maNV +  " - " + this.hoTen + " - ");
+        System.out.println(this.maNV +  " - " + this.hoTen);
         System.out.println("Thu nhap: " + this.getThuNhap());
         System.out.println("Thue thu nhap: " + this.getThueTN());
     }

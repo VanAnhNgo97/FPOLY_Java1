@@ -16,6 +16,7 @@ public class QuanLyNhanVien {
     public static void main(String[] args) {
         int luaChon=1;
         Scanner scanner = new Scanner(System.in);
+        NhanVienService nvService = new NhanVienService();
         while(luaChon != 0) {
             System.out.println("Vui long lua chon cac tinh nang tu 0-9");
             // Hien thi menu
@@ -37,18 +38,23 @@ public class QuanLyNhanVien {
             switch(luaChon) {
                 case 1:
                     System.out.println("Ban lua chon tinh nang 1: Them nhan vien");
+                    nvService.themNhanVien();
                     break;
                 case 2:
                     System.out.println("Ban lua chon tinh nang 2: Hien thi danh sach nhan vien");
+                    nvService.hienThiDanhSachNhanVien();
                     break;
                 case 3:
                     System.out.println("Ban lua chon tinh nang 3: Tim va hien thi nhan vien");
+                    nvService.timVaHienThiNhanVien();
                     break;
                 case 4:
                     System.out.println("Ban lua chon tinh nang 4: Xoa nhan vien");
+                    nvService.xoaNhanVienTheoMa();
                     break;
                 case 5:
                     System.out.println("Ban lua chon tinh nang 5: Cap nhat nhan vien");
+                    nvService.capNhatNhanVien();
                     break;
                 case 6:
                     System.out.println("Ban lua chon tinh nang 6: Tim nhan vien theo khoang luong");
