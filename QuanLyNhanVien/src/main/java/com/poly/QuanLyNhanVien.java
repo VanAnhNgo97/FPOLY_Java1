@@ -58,15 +58,19 @@ public class QuanLyNhanVien {
                     break;
                 case 6:
                     System.out.println("Ban lua chon tinh nang 6: Tim nhan vien theo khoang luong");
+                    nvService.timNhanVienTheoLuong();
                     break;
                 case 7:
                     System.out.println("Ban lua chon tinh nang 7: Sap xep nhan vien theo ho va ten");
+                    nvService.sapXepNhanVienTheoHoTen();
                     break;
                 case 8:
                     System.out.println("Ban lua chon tinh nang 8: Sap xep nhan vien theo thu nhap");
+                    nvService.sapXepNhanVienTheoThuNhap();
                     break;
                 case 9:
                     System.out.println("Ban lua chon tinh nang 9: Xuat 5 nhan vien co thu nhap cao nhat");
+                    nvService.top5NhanVienThuNhapCao();
                     break;
                 default:
                     System.out.println("Cam on ban da su dung phan mem");

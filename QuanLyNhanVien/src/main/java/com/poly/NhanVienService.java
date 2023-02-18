@@ -5,6 +5,8 @@
 package com.poly;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 /**
@@ -108,6 +110,93 @@ public class NhanVienService {
             nv.setHoTen(hoTenMoi);
             nv.setLuong(luongMoi);           
         }
+    }
+    
+    public void timNhanVienTheoLuong() {
+        Scanner scanner = new Scanner(System.in);
+        double khoangLuongBatDau, khoangLuongKetThuc;
+        System.out.print("Nhap dai luong tu: ");
+        khoangLuongBatDau = scanner.nextDouble();
+        System.out.print("den: ");
+        khoangLuongKetThuc = scanner.nextDouble();
+        //Khai bao 1 array list luu tru danh sach nhan vien phu hop
+        ArrayList<NhanVien> ketQua = new ArrayList<NhanVien>();
+        //Su dung vong lap for
+        for(NhanVien nv: this.dsNhanVien) {
+            double luong = nv.getLuong();
+            if(luong >= khoangLuongBatDau && luong <= khoangLuongKetThuc) {
+                ketQua.add(nv);
+            }
+        }
+        //Kiem tra xem ket qua co chua nhan vien hay ko
+        if(ketQua.isEmpty()) {
+            System.out.println("Khong tim thay nhan vien co muc luong tu "
+                               + khoangLuongBatDau + " den " + khoangLuongKetThuc);
+        } else {
+            System.out.println("Danh sach nhan vien co luong tu "
+                               + khoangLuongBatDau + " den " + khoangLuongKetThuc + ":");
+            for(NhanVien nv: ketQua) {
+                nv.xuatThongTin();
+            }
+        }
+    }
+    
+    public void sapXepNhanVienTheoHoTen() {
+        //Khai bao 1 tieu chi so sanh
+        Comparator<NhanVien> soSanhHoTen = new Comparator<NhanVien>() {
+            @Override
+            public int compare(NhanVien nv1, NhanVien nv2) {
+                String tenNV1 = nv1.getHoTen();
+                String tenNV2 = nv2.getHoTen();
+                return tenNV1.compareToIgnoreCase(tenNV2);
+            }
+        };
+        //Sap xep ho ten theo thu tu A - Z
+        Collections.sort(this.dsNhanVien, soSanhHoTen);
+        System.out.println("Danh sach nhan vien sap xep theo ho ten:");
+        this.hienThiDanhSachNhanVien();
+    }
+    
+    public void sapXepNhanVienTheoThuNhap() {
+        //Khai bao 1 tieu chi so sanh
+        Comparator<NhanVien> soSanhThuNhap = new Comparator<NhanVien>() {
+            @Override
+            public int compare(NhanVien nv1, NhanVien nv2) {
+                Double thuNhapNV1 = Double.valueOf(nv1.getThuNhap());
+                Double thuNhapNV2 = Double.valueOf(nv2.getThuNhap());
+                return thuNhapNV1.compareTo(thuNhapNV2);
+            }
+            
+        };
+        //Sap xep nhan vien theo thu nhap tu thap den cao
+        Collections.sort(this.dsNhanVien, soSanhThuNhap);
+        System.out.println("Danh sach nhan vien sap xep theo thu nhap:");
+        this.hienThiDanhSachNhanVien();
+    }
+    
+    public void top5NhanVienThuNhapCao() {
+        //Khai bao 1 tieu chi so sanh
+        Comparator<NhanVien> soSanhThuNhap = new Comparator<NhanVien>() {
+            @Override
+            public int compare(NhanVien nv1, NhanVien nv2) {
+                Double thuNhapNV1 = Double.valueOf(nv1.getThuNhap());
+                Double thuNhapNV2 = Double.valueOf(nv2.getThuNhap());
+                return thuNhapNV2.compareTo(thuNhapNV1);
+            }
+            
+        };
+        //Sap xep nhan vien theo thu nhap tu thap den cao
+        Collections.sort(this.dsNhanVien, soSanhThuNhap);
+        System.out.println("Top 5 Nhan Vien thu nhap cao");
+        for(int i=0; i<5; i++) {
+            if(i < this.dsNhanVien.size()) {
+                NhanVien nv = this.dsNhanVien.get(i);
+                nv.xuatThongTin();
+            } else {
+                break;
+            }
+        }
+        
     }
     
 }
